@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import myimg from './assets/myimg.jpg';
+import StripeContainer from './components/StripeContainer';
 
 function App() {
+  const [showItem, setShowItem] = useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Easy Car </h1>
+      {showItem ? <StripeContainer/> : <> <h3>Rs.3000</h3> <img style={{width:400}} src={myimg} alt="mycar" />
+      <button onClick={() => setShowItem(true)}>Book  Now</button></>}
     </div>
   );
 }
